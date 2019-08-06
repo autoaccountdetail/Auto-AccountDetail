@@ -1,14 +1,35 @@
 const BankComment = require('./BankComment');
+const COMMON_CONSTANT= require('./../common/constant');
 const Iconv  = require('iconv').Iconv;
 const cheerio = require('cheerio');
 const request_promise = require("request-promise-native");
 const moment = require('moment');
 
-exports.getTransactionToday = (param) => {
+// 공동은행 거래내역 조회를 위한 parameter를 생성합니
+exports.makeBankParam = (request_body) =>{
+    let bank_param = {... request_body }; // 불변성보장
+    bank_param.page_index = "page_index" in bank_param ? bank_param.page_index : "1";
+    bank_param.tran_dtime = moment().format("YYYYMMDDHHmmss");
+    bank_param.sort_order = "D";
+    delete bank_param.token;
+    return bank_param;
+};
+
+// 공동은행 API에 거래내역 요청
+exports.getTransactionToday = (token, bank_param) => {
+    let param = {
+        url : COMMON_CONSTANT.BANK_API_TRANSACTION_URL,
+        headers : {
+            "Authorization" : token
+        },
+        method: "GET",
+        qs : bank_param
+    };
     return request_promise(param).then((exportToday));
 };
 
-exports.saveBankComment = (fintech,transaction_list) => {
+// mongo에 조회된 내역을 저장합니다.
+exports.saveBankComment = (fintech, transaction_list) => {
     bankComments = transaction_list.map(
         tran => {
             return {

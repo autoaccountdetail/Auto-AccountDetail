@@ -13,25 +13,11 @@ exports.update = async (req, res) => {
     }
 
     let today_transaction = {is_more : true, trans_list : []};
-    let bank_param = req.body;
-    bank_param.page_index = "page_index" in bank_param ? bank_param.page_index : "1";
-    bank_param.tran_dtime = moment().format("YYYYMMDDHHmmss");
-    bank_param.sort_order = "D";
-
-    let token = "Bearer " + bank_param.token;
-    delete bank_param.token;
-
-    let request_param = {
-        url : COMMON_CONSTANT.BANK_API_TRANSACTION_URL,
-        headers : {
-            "Authorization" : token
-        },
-        method: "GET",
-        qs : bank_param
-    };
+    let bank_param = service.makeBankParam(req.body);
+    let token = "Bearer " + req.body.token;
 
     while (today_transaction.is_more){
-        let page_content = await service.getTransactionToday(request_param);
+        let page_content = await service.getTransactionToday(token, bank_param);
         today_transaction.is_more = page_content.is_more;
         today_transaction.trans_list = today_transaction.trans_list.concat(page_content.trans_list);
         bank_param.page_index = bank_param.page_index*1 + 1;
