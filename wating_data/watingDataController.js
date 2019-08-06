@@ -5,7 +5,7 @@ const request = require("request");
 const Iconv  = require('iconv').Iconv;
 const cheerio = require('cheerio');
 const CONSTATNT = require('./../common/constant');
-const service = require('./service');
+const service = require('./LoginService');
 
 const WaitingData = require('./WaitingData');
 
