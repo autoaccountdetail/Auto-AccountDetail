@@ -7,7 +7,7 @@ const cheerio = require('cheerio');
 const CONSTATNT = require('./../common/constant');
 const service = require('./LoginService');
 
-const WaitingData = require('./WaitingData');
+const WaitingData = require('../entity/WaitingData');
 
 exports.login =  async (req, res) => {
     console.log("Entry Login POST");
