@@ -1,6 +1,7 @@
 const COMMON_MODULES = require('./../common/modules');
 const COMMON_CONSTANT= require('./../common/constant');
-const bank_api_service = require('./BankApiService');
+const bank_api_service = require('../service/BankApiService');
+const bank_comment_service = require('../service/BankCommantService');
 const council_service = require('../service/CouncilService');
 const validater = require('./ReqeustSchema');
 const moment = require('moment');
@@ -43,7 +44,7 @@ exports.update = async (req, res) => {
         bank_param.page_index = bank_param.page_index*1 + 1;
     }
 
-    bank_api_service.saveBankComments(bank_param.fintech_use_num, today_transaction.trans_list);
+    bank_comment_service.saveBankComments(bank_param.fintech_use_num, today_transaction.trans_list);
 
     return res.status(200).json(bank_param);
 

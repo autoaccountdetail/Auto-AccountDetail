@@ -15,17 +15,6 @@ exports.issueToken = new Schema({
     }
 });
 
-exports.showFintech = new Schema({
-    "access_token": { // Access Token, ex) fbb4e14a-5d5e-4510-8840-97208c2e48c7
-        type: String,
-        required: true
-    },
-    "user_seq_no": { // 유저 일련번호, ex) 1100035167
-        type: String,
-        required: true
-    }
-});
-
 exports.transaction = new Schema({
     "access_token": { // Access Token, ex) fbb4e14a-5d5e-4510-8840-97208c2e48c7
         type: String,

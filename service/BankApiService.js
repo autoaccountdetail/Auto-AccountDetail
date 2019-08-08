@@ -1,6 +1,6 @@
 const BankComment = require('../entity/BankComment');
 const BankToken = require('../entity/BankToken');
-const COMMON_CONSTANT= require('./../common/constant');
+const COMMON_CONSTANT= require('../common/constant');
 const request_promise = require("request-promise-native");
 const moment = require('moment');
 
@@ -49,24 +49,6 @@ exports.makeBankParam = (request_body) =>{
     bank_param.sort_order = "D";
     delete bank_param.access_token;
     return bank_param;
-};
-
-// mongo에 조회된 내역을 저장합니다.
-exports.saveBankComments = (fintech, transaction_list) => {
-    bankComments = transaction_list.map(
-        tran => {
-            return {
-                trans_key :tran.tran_date + tran.tran_time +  fintech,
-                comment : "",
-                is_confirm: false,
-                create_date: new Date()
-            }
-        }
-    );
-    BankComment.insertMany(bankComments, function(error, docs) {
-        if(error != null)
-            console.log(error);
-    });
 };
 
 // BankToken을 저장합니다.

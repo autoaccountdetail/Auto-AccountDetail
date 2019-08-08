@@ -1,4 +1,5 @@
 const mongoose =require('mongoose');
+// 임시데이터
 const WaitingDataSchema = new mongoose.Schema({
     college_key: Number, // 학교 키
     balance_amt : Number, // 통장 잔액
