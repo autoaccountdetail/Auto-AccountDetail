@@ -82,6 +82,7 @@ function exportToday(body) {
     let transaction_list = JSON.parse(body).res_list;
     let test_date = [2016, 9, 1]; // month + 1
 
+    //Todo list 각 원소에 핀테크번호
     let today_trans = transaction_list
         .filter(item =>{
             return item.tran_date === moment(test_date).format("YYYYMMDD")

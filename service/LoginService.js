@@ -1,4 +1,4 @@
-const CONSTATNT = require('./../common/constant');
+const CONSTATNT = require('../common/constant');
 const Iconv  = require('iconv').Iconv;
 const cheerio = require('cheerio');
 const request_promise = require("request-promise-native");
