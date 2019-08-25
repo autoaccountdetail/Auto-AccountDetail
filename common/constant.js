@@ -8,4 +8,6 @@ module.exports = Object.freeze({
     BANK_CLIENT_SECRET: '53ffb1d8332d466f9391d6a53f1dde01',
     BANK_API_SCOPE: 'login inquiry transfer',
     BANK_API_GRANT_TYPE: 'authorization_code',
+    FABRIC_CA_URL: 'http://35.243.78.192:7054',
+    FABRIC_CA_NAME: 'ca.example.com'
 });
