@@ -12,5 +12,6 @@ module.exports = Object.freeze({
     FABRIC_PEER_URL: 'grpc://35.243.78.192:7051',
     FABRIC_CA_NAME: 'ca.example.com',
     FABRIC_CHANEL_NAME: 'mychannel',
-    FABRIC_USER_NAME: 'user10'
+    FABRIC_USER_NAME: 'user10',
+    FABRIC_WALLET_PATH: '/Applications/Project/Auto-AccountDetail/hyperledger_fabric/wallet'
 });
