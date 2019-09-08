@@ -10,6 +10,7 @@
     "express": "^4.17.1",
     "fabric-ca-client": "^1.4.4",
     "fabric-client": "^1.4.4",
+    "fabric-network": "^1.4.4",
     "iconv": "^2.3.4",
     "moment": "^2.24.0",
     "mongoose": "^5.6.6",
