@@ -11,17 +11,19 @@ const FabricHelper = require('./fabric_helper');
 
 
 async function main() {
-    let user_client = {
-        "client" : new Fabric_Client(),
-        "channel" : null,
-        "order" : null,
-        "event_hubs" : null,
-        "tx_id": null
-    };
-    // const store_path = CONSTANT.FABRIC_WALLET_PATH;
-    // console.log('Store path:'+store_path);
+    let fabric_client = new Fabric_Client();
+    let testObj = "11-28.012,%20105.20-4089402184902-Hansel-test";
+    let key = "12";
+    let timestamp = "4089402184902";
+    let location = "28.012, 105.20";
+    let vessel = "Hansel";
+    let holder = "test";
 
-    FabricHelper.initObject(user_client)
+    var member_user = null;
+    const store_path = CONSTANT.FABRIC_WALLET_PATH;
+    console.log('Store path:'+store_path);
+
+    FabricHelper.initObject(fabric_client)
         .then((ClientObj) => {
             return FabricHelper.queryByChainCode(
                 ClientObj, 'queryTuna', ['1'] );

@@ -4,17 +4,15 @@
 const Fabric_Client = require('fabric-client');
 const CONSTANT = require('../common/constant');
 
-
 // init Object : 분산원장에 접근 할 인증된 유저 객체를 초기화
-module.exports.initObject = (fabric_client) =>
-{
+module.exports.initObject = (user_client) => {
+    let fabric_client = user_client.client;
     const store_path = CONSTANT.FABRIC_WALLET_PATH;
     console.log('Store path:'+store_path);
 
     return Fabric_Client.newDefaultKeyValueStore({ path: store_path
     })
         .then((state_store) => {
-
             // assign the store to the fabric client
             fabric_client.setStateStore(state_store);
             var crypto_suite = Fabric_Client.newCryptoSuite();
@@ -41,27 +39,28 @@ module.exports.initObject = (fabric_client) =>
             let channel = fabric_client.newChannel(CONSTANT.FABRIC_CHANEL_NAME);
             let peer = fabric_client.newPeer(CONSTANT.FABRIC_PEER_URL);
             let targets = []; // 보증인
+            let eventHubs = []; // 이벤트 허브
 
             channel.addPeer(peer);
             targets.push(peer);
+            eventHubs.push(channel.newChannelEventHub(peer));
 
-            let initObject = {
-                "channel" : channel,
-                "targets" : targets,
-                "client" : fabric_client
+            return {
+                "channel": channel,
+                "targets": targets,
+                "client": fabric_client,
+                "event_hubs": eventHubs,
+                "tx_id": fabric_client.newTransactionID()
             };
-
-            return initObject;
         })
 };
 
 //  조회용 체인코들 호출
-module.exports.queryByChainCode= (ClientObj, chainCodeName, args) =>
-{
+module.exports.queryByChainCode= (ClientObj, chainCodeName, args) => {
 
     // 트랜잭션 ID 생성, 호출할 체인코드의 트랜잭션 이름과 인수와 함께 request 생성
-    let tx_id = ClientObj['client'].newTransactionID();
-    let channel = ClientObj['channel'];
+    let tx_id = ClientObj.client.newTransactionID();
+    let channel = ClientObj.channel;
 
     const request = {
         chaincodeId: 'tuna-app',
@@ -73,4 +72,19 @@ module.exports.queryByChainCode= (ClientObj, chainCodeName, args) =>
 
     // send the query proposal to the peer
     return channel.queryByChaincode(request);
+};
+
+module.exports.invokeByChainCode = (ClientObj, chainCodeName, args) => {
+    let tx_id = ClientObj['client'].newTransactionID();
+    let channel = ClientObj['channel'];
+
+    const request = {
+        chaincodeId: 'tuna-app',
+        txId: tx_id,
+        fcn: chainCodeName,
+        args: args,
+        targets: ClientObj['targets']
+    };
+
+    return channel.sendTransactionProposal(request);
 };
