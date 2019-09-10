@@ -2,8 +2,9 @@ const CONSTATNT = require('../common/constant');
 const Iconv  = require('iconv').Iconv;
 const cheerio = require('cheerio');
 const request_promise = require("request-promise-native");
+const councilService = require('./CouncilService');
 
-exports.login = (id, pswd) => {
+exports.studentLogin = (id, pswd) => {
     console.log("Service Login");
     let url = CONSTATNT.PLMS_LOGIN_REQUEST_URL;
     let form_param = { id: id, pswd: pswd,
@@ -17,6 +18,20 @@ exports.login = (id, pswd) => {
     };
 
     return  request_promise(param).then(validateLogin);
+};
+
+exports.councilLogin = async (id, pswd) => {
+    console.log("Council Login");
+    let rst = await councilService.findByIdAndPassword(id,pswd);
+
+    console.log(rst);
+
+    if(rst.length == 0){
+        let msg = {'msg' : '로그인 실패'};
+        return msg;
+    }
+
+    return rst;
 };
 
 function validateLogin(body){
