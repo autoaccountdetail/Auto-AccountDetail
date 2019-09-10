@@ -1,5 +1,13 @@
 const BankComment = require('../entity/BankComment');
 
+//
+exports.findByTranKey = (bank_comment_key) => {
+    return BankComment
+        .find({"trans_key" : bank_comment_key}, isSuccess);
+};
+
+
+// 핀 번호로 BankComment 리스트 조회
 exports.findBankComments = (fintech, is_confirm=false) => {
     return BankComment
         .find({"fintech_use_num": fintech, "is_confirm": is_confirm}, isSuccess);

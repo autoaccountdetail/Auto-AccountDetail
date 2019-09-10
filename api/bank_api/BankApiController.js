@@ -1,8 +1,8 @@
-const COMMON_MODULES = require('./../common/modules');
-const COMMON_CONSTANT= require('./../common/constant');
-const bank_api_service = require('../service/BankApiService');
-const bank_comment_service = require('../service/BankCommantService');
-const council_service = require('../service/CouncilService');
+const COMMON_MODULES = require('../../common/modules');
+const COMMON_CONSTANT= require('../../common/constant');
+const bank_api_service = require('../../service/BankApiService');
+const bank_comment_service = require('../../service/BankCommantService');
+const council_service = require('../../service/CouncilService');
 const validater = require('./ReqeustSchema');
 const moment = require('moment');
 
@@ -36,6 +36,8 @@ exports.update = async (req, res) => {
     let today_transaction = {is_more : true, trans_list : []};
     let bank_param = bank_api_service.makeBankParam(req.body);
     let token = "Bearer " + req.body.access_token;
+    let fintech_use_num = req.body.fintech_use_num;
+    let union_name = req.body.union_name;
 
     while (today_transaction.is_more){
         let page_content = await bank_api_service.getTransactionToday(token, bank_param);
@@ -44,7 +46,16 @@ exports.update = async (req, res) => {
         bank_param.page_index = bank_param.page_index*1 + 1;
     }
 
-    bank_comment_service.saveBankComments(bank_param.fintech_use_num, today_transaction.trans_list);
+    today_transaction.trans_list = today_transaction.trans_list
+        .map( item => {
+            item['fintech_use_num'] = fintech_use_num;
+            item['union_name'] = union_name;
+            return item
+        });
+
+    //Todo Invoke 로직 구현
+
+    //bank_comment_service.saveBankComments(bank_param.fintech_use_num, today_transaction.trans_list);
 
     return res.status(200).json(bank_param);
 

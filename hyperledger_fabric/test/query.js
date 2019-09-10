@@ -6,8 +6,8 @@
 
 // call the packages we need
 const Fabric_Client = require('fabric-client');
-const CONSTANT = require('../common/constant');
-const FabricHelper = require('./fabric_helper');
+const CONSTANT = require('../../common/constant');
+const FabricHelper = require('../fabric_helper');
 
 
 async function main() {

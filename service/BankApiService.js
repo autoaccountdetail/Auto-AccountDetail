@@ -84,10 +84,9 @@ function exportToday(body) {
 
     //Todo list 각 원소에 핀테크번호
     let today_trans = transaction_list
-        .filter(item =>{
-            return item.tran_date === moment(test_date).format("YYYYMMDD")
+        .filter( item => {
+            return item.tran_date === moment(test_date).format("YYYYMMDD");
         });
-
     let rst = {};
     rst.trans_list = today_trans;
     rst.is_more = today_trans.length === transaction_list.length;

@@ -1,7 +1,7 @@
 const mongoose =require('mongoose');
 
 const BankComment = new mongoose.Schema({
-    trans_key: String, // 거래날짜+거래시간+핀테크번호
+    trans_key: String, // 핀테크번호 +거래날짜+거래시간+남은잔액
     fintech_use_num: String, // 학생회 조인 키
     comment: String,
     is_confirm: Boolean, // 코멘트 확인 여부

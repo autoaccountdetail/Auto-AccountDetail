@@ -5,7 +5,7 @@ const mongoose =require('mongoose');
 const Council = new mongoose.Schema({
     id: String,
     password: String, //Todo 암호화 과정 필요
-    union: String, // 소속 단대 및 단과
+    union_name: String, // 소속 단대 및 단과
     fintech_use_num : String, // 핀테크번호
     created_date: {type: Date, default: Date.now}
 });

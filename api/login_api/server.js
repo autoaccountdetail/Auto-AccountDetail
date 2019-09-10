@@ -47,7 +47,7 @@ Student.find(function(error, students){
 })
 
 // 11. 특정 아이디값 가져오기
-Student.findOne({_id:'585b777f7e2315063457e4ac'}, function(error,student){
+Student.findByTranKey({_id:'585b777f7e2315063457e4ac'}, function(error, student){
     console.log('--- Read one ---');
     if(error){
         console.log(error);

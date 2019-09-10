@@ -1,9 +1,9 @@
-const COMMON_MODULES = require('./../common/modules');
-const bank_comment_service = require('../service/BankCommantService');
+const COMMON_MODULES = require('../../common/modules');
+const bank_comment_service = require('../../service/BankCommantService');
 
 
 exports.searchComment = async (req, res) => {
-    COMMON_MODULES.ENTRY("searchComment");
+    COMMON_MODULES.ENTRY("loadTransactionList");
     const fintech = req.query.fintech_use_num;
     let bank_comment_list = await bank_comment_service.findBankComments(fintech);
 

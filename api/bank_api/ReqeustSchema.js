@@ -38,6 +38,10 @@ exports.transaction = new Schema({
     },
     "page_index": { // 보내지 않아도 됨
         type : String
+    },
+    "union_name": {
+        required : true,
+        type : String // 부산대학교 공대 정보컴퓨터 공학부
     }
 });
 
