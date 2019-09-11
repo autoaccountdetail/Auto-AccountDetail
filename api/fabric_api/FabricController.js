@@ -16,7 +16,7 @@ exports.loadTransactionList = async (req, res) => {
                 item => item.Record
             );
         });
-    
+
 
     tran_list.map( item => {
         console.log(item);

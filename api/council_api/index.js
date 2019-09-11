@@ -6,6 +6,7 @@ const controller = require('./CouncilController');
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: true}));
 
+router.get('/transactions', controller.loadTransactionList);
 router.get('/comments', controller.searchComment);
 router.put('/comments', controller.updateComment);
 
