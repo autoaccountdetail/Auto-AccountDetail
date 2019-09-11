@@ -24,7 +24,7 @@ async function main() {
     FabricHelper.initObject(user_client)
         .then((ClientObj) => {
             return FabricHelper.queryByChainCode(
-                ClientObj, 'queryTuna', ['1'] );
+                ClientObj, 'queryHistorysByKey', ['key'] );
         })
         .then((query_responses) => {
         console.log("Query has completed, checking results");

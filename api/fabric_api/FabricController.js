@@ -1,14 +1,27 @@
 const COMMON_MODULES = require('../../common/modules');
 const Account = require('../../entity/Account');
+const fabric_helper = require('../../hyperledger_fabric/fabric_helper');
 
 exports.loadTransactionList = async (req, res) => {
     COMMON_MODULES.ENTRY("loadTransactionList");
     let union_name = req.body.union_name;
+    let user_client = {};
 
-    // Todo 원장에서 union_name으로 Account 가져오는 로직
+    console.log(union_name);
 
-    return res.status(200).json(
-        new Account(1, "Computer", "199004942057725877163790",
-            "20161001", "010101")
-    );
+    let tran_list = await fabric_helper.initObject(user_client)
+        .then(user_client => fabric_helper.queryByChainCode(user_client, "queryHistorysByKey", ["unionName",union_name]))
+        .then( result => {
+            return JSON.parse(result[0].toString()).payload.map(
+                item => item.Record
+            );
+        });
+    
+
+    tran_list.map( item => {
+        console.log(item);
+    });
+
+
+    return res.status(200).json(tran_list);
 };

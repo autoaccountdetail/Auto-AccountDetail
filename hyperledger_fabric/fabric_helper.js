@@ -9,7 +9,7 @@ const util = require('util');
 // init Object : 분산원장에 접근 할 인증된 유저 객체를 초기화
 // mutable function
 module.exports.initObject = (user_client) => {
-    let fabric_client = user_client.client;
+    let fabric_client = new Fabric_Client();
     const store_path = CONSTANT.FABRIC_WALLET_PATH;
     console.log('Store path:'+store_path);
 
@@ -52,6 +52,7 @@ module.exports.initObject = (user_client) => {
             user_client.tx_id = fabric_client.newTransactionID();
             user_client.event_hubs = eventHubs;
             user_client.targets = targets;
+            user_client.client = fabric_client;
 
             return user_client;
         })
@@ -65,7 +66,7 @@ module.exports.queryByChainCode= (ClientObj, chainCodeName, args) => {
     let channel = ClientObj.channel;
 
     const request = {
-        chaincodeId: 'tuna-app',
+        chaincodeId: CONSTANT.FABRIC_CHAIN_CODE_ID,
         txId: tx_id,
         fcn: chainCodeName,
         args: args,

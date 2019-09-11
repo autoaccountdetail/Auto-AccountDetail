@@ -15,5 +15,5 @@ module.exports = Object.freeze({
     FABRIC_CHANEL_NAME: 'mychannel',
     FABRIC_USER_NAME: 'user10',
     FABRIC_WALLET_PATH: '/Applications/Project/Auto-AccountDetail/hyperledger_fabric/wallet',
-    FABRIC_CHAIN_CODE_ID: 'tuna-app'
+    FABRIC_CHAIN_CODE_ID: 'history'
 });

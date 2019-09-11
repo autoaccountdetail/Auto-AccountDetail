@@ -25,14 +25,14 @@ async function main() {
     let vessel = "Hansdwel";
     let holder = "tedwst";
 
-    let args = [key, timestamp, location, vessel, holder];
+    let args = [ "key1", "tranDate", "tranTime", "inputType", "tranType", "printCount", "tranAmt", "afterBalanceAmt", "branchName", "unionName1", "fintechNum"];
 
 
     const store_path = CONSTANT.FABRIC_WALLET_PATH;
     console.log('Store path:'+store_path);
 
     FabricHelper.initObject(user_client)
-        .then(user_client => FabricHelper.invokeByChainCode(user_client, "recordTuna", args))
+        .then(user_client => FabricHelper.invokeByChainCode(user_client, "addHistory", args))
         .then((results) => {
         console.log('Send transaction promise and event listener promise have completed');
         // check the results in the order the promises were added to the promise all list
