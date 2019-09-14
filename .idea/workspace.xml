@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cfb0f119-39f0-48fd-8b76-a266dedb8eb5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/api/login_api/LoginController.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/login_api/LoginController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-    </list>
+    <list default="true" id="cfb0f119-39f0-48fd-8b76-a266dedb8eb5" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -135,8 +131,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/api/login_api/LoginController.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="280">
-                  <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+                <state relative-caret-position="257">
+                  <caret line="13" column="30" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
                 </state>
               </provider>
             </entry>
@@ -450,12 +446,12 @@
       <workItem from="1566734841707" duration="1868000" />
       <workItem from="1567601244343" duration="1460000" />
       <workItem from="1567919047028" duration="22503000" />
-      <workItem from="1568106278617" duration="40304000" />
+      <workItem from="1568106278617" duration="40493000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="136656000" />
+    <option name="totallyTimeSpent" value="136845000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -883,8 +879,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/api/login_api/LoginController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        <state relative-caret-position="257">
+          <caret line="13" column="30" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
         </state>
       </provider>
     </entry>
