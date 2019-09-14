@@ -17,4 +17,15 @@ exports.login =  async (req, res) => {
     return res.status(200).json(rst);
 };
 
+exports.join = async (req, res) => {
+    console.log(req.body);
+    let id = req.body.id;
+    let pswd = req.body.pswd;
+    let union_name = req.body.union_name;
+    console.log(id);
+    service.councilJoin(id, pswd, union_name);
 
+    let rst = {"msg" : "회원가입에 성공했습니다."};
+    return res.status(200).json(rst);
+
+};

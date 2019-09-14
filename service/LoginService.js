@@ -3,6 +3,7 @@ const Iconv  = require('iconv').Iconv;
 const cheerio = require('cheerio');
 const request_promise = require("request-promise-native");
 const councilService = require('./CouncilService');
+const Council = require('../entity/Council');
 
 exports.studentLogin = (id, pswd) => {
     console.log("Service Login");
@@ -32,6 +33,14 @@ exports.councilLogin = async (id, pswd) => {
     }
 
     return rst;
+};
+
+exports.councilJoin = async  (id, pswd, union_name) =>{
+      let council = new Council({
+          "id": id, "paswword": pswd, "union_name": union_name });
+        council.save(error => {
+        if(error) console.log(error);
+    });
 };
 
 function validateLogin(body){
