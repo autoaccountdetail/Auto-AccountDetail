@@ -1,4 +1,5 @@
 const BankComment = require('../entity/BankComment');
+const fabric_helper = require('../hyperledger_fabric/fabric_helper');
 
 //
 exports.findByTranKey = (bank_comment_key) => {
@@ -15,13 +16,11 @@ exports.findBankComments = (fintech, is_confirm=false) => {
 
 // 댓글 수정
 exports.updateBankComment =  (trans_key, comment) => {
-    let target_comment = BankComment
-        .update(
-            {"trans_key": trans_key},
-            {"comment": comment, "is_confirm": true},
-            isSuccess
-        );
-    return target_comment
+    let user_client = {};
+    fabric_helper.initObject(user_client)
+        .then( user_client => fabric_helper.invokeByChainCode(user_client,"registerComment",
+            ["key", trans_key, "comment", comment]));
+    return "success";
 };
 
 exports.saveBankComments = (fintech, transaction_list) => {

@@ -47,7 +47,7 @@ function validateLogin(body){
         let student_name = $('input[name="name"]')[0].attribs.value;
         let user_id = $('input[name="userid"]')[0].attribs.value;
         loginResult['student_name'] = student_name;
-        loginResult['user_id'] = user_id;
+        loginResult['fintech_use_num'] = user_id;
         loginResult['msg'] = "로그인 성공";
     } else {
         loginResult['msg'] = "로그인 실패";

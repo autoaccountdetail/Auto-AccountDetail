@@ -24,7 +24,7 @@ async function main() {
     FabricHelper.initObject(user_client)
         .then((ClientObj) => {
             return FabricHelper.queryByChainCode(
-                ClientObj, 'queryHistorysByKey', ['key'] );
+                ClientObj, "queryHistorysComment", ["key","199004942057725877163790201610015000000"]);
         })
         .then((query_responses) => {
         console.log("Query has completed, checking results");

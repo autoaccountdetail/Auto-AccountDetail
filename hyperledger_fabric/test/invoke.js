@@ -25,7 +25,7 @@ async function main() {
     let vessel = "Hansdwel";
     let holder = "tedwst";
 
-    let args = [ "key1", "tranDate", "tranTime", "inputType", "tranType", "printCount", "tranAmt", "afterBalanceAmt", "branchName", "unionName1", "fintechNum"];
+    let args = [ "key21", "tranDate", "tranTime", "inputType", "tranType", "printCount", "tranAmt", "afterBalanceAmt", "branchName", "fintechNum", "unionName1"];
 
 
     const store_path = CONSTANT.FABRIC_WALLET_PATH;

@@ -57,7 +57,7 @@ Student.findByTranKey({_id:'585b777f7e2315063457e4ac'}, function(error, student)
 });
 
 // 12. 특정아이디 수정하기
-Student.findById({_id:'585b777f7e2315063457e4ac'}, function(error,student){
+Student.findById({_id:'585b777f7e2315063457e4ac'}, function(error, student){
     console.log('--- Update(PUT) ---');
     if(error){
         console.log(error);

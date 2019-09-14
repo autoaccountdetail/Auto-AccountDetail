@@ -5,7 +5,7 @@ const BankToken = new mongoose.Schema({
     refresh_token: String,
     expires_in: Number,
     user_seq_no: Number,
-    user_id : String, // 학생회 조인키
+    fintech_use_num : String, // 학생회 조인키
     created_date: {type: Date, default: Date.now}
 });
 

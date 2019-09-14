@@ -15,7 +15,31 @@ exports.getTransactionToday = (token, bank_param) => {
         method: "GET",
         qs : bank_param
     };
+
+    console.log(param);
+
     return request_promise(param).then((exportToday));
+};
+
+
+exports.getAuthUrl = () => {
+    let param = {
+        url : COMMON_CONSTANT.BANK_API_AUTH_URL,
+        method : "GET",
+        qs : {
+            "redirect_uri" : "http://localhost:3000/api/bank/auth_code",
+            "client_id" : COMMON_CONSTANT.BANK_CLIENT_KEY,
+            "response_type" : "code",
+            "lang" : "kor",
+            "auth_type" : "0",
+            "scope" : "login inquiry transfer",
+            "invoke_type" : "ajax"
+        }
+    };
+
+    return request_promise(param).then( res => {
+        return res
+    })
 };
 
 // access token 정보을 얻어옵니다.
@@ -53,7 +77,7 @@ exports.makeBankParam = (request_body) =>{
 
 // BankToken을 저장합니다.
 exports.saveBankToken = (user_id, token) => {
-    let bank_toekn = new BankToken({...token, user_id : user_id});
+    let bank_toekn = new BankToken({...token, fintech_use_num : user_id});
     bank_toekn.save(error => {
         if(error) console.log(error);
     });
@@ -63,16 +87,23 @@ exports.getFintechByToken = ({access_token, user_seq_no}) => { // 구조체 해�
     let param = {
         url : COMMON_CONSTANT.BANK_API_ACCOUT_URL,
         headers : {
-            "Authorization" : access_token
+            "Authorization" : "Bearer " + access_token
         },
         method: "GET",
         qs : {"user_seq_no" : user_seq_no}
     };
+    console.log("=========Param============");
+    console.log(param);
 
     return request_promise(param).then((body) =>{
         let body_json = JSON.parse(body);
-        let last = body_json.res_list.length-1;
-        return body_json.res_list[last].fintech_use_num;
+        console.log("Body JSON");
+        console.log(body_json);
+        // let last = body_json.res_list.length-1;
+        console.log("======== This Fintech ========");
+        console.log(body_json.res_list[0]);
+
+        return body_json.res_list[0].fintech_use_num;
     });
 };
 

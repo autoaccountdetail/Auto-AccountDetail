@@ -170,3 +170,22 @@ module.exports.invokeByChainCode = (user_client, chainCodeName, args) => {
             }
         })
 };
+
+module.exports.makeAddHistoryArgs = (args) => {
+    let key = args.fintech_use_num + args.tran_date + args.after_balance_amt;
+    let rst = [key, ...Object.values(args)];
+    rst[0] = key;
+    rst[1] = args.tran_date;
+    rst[2] = args.tran_time;
+    rst[3] = args.inout_type;
+    rst[4] = args.tran_type;
+    rst[5] = args.print_content;
+    rst[6] = args.tran_amt;
+    rst[7] = args.after_balance_amt;
+    rst[8] = args.branch_name;
+    rst[9] = args.union_name;
+    rst[10] = args.fintech_use_num;
+
+    console.log(rst);
+    return rst;
+};
