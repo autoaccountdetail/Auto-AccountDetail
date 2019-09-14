@@ -8,7 +8,7 @@ exports.login =  async (req, res) => {
    let rst = '';
 
    // 학생회 계정 로그인 로직 필요, id의 @ 가 포함되냐, 안되냐로 구분
-    if (id.includes("@")) // 고치기
+    if (id.indexOf("@") === -1) // 고치기
         rst = await service.councilLogin(id, pswd);
     else
         rst = await service.studentLogin(id, pswd);
