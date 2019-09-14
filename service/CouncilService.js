@@ -19,3 +19,11 @@ exports.findById = (user_id) => {
         .where('id').equals(user_id);
 };
 
+exports.findByUnionName = (union_name) => {
+    return Council.find({"union_name": union_name},(err, docs) => {
+        if(err)
+            return "Union 정보가 존재하지 않습니다.";
+        return "성공";
+    })
+};
+

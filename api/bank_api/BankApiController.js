@@ -42,7 +42,6 @@ exports.issueToken = async (req, res) => {
     return res.status(200).json(fintech);
 };
 
-
 exports.update = async (req, res) => {
     COMMON_MODULES.ENTRY("Bank API Search");
     const is_valid = validater.transaction.validate(req.body);
@@ -54,8 +53,12 @@ exports.update = async (req, res) => {
     let bank_param = bank_api_service.makeBankParam(req.body);
     let user_client = {};
     let union_name = req.body.union_name;
-    let token = "Bearer " + req.body.access_token;
-    let fintech_use_num = req.body.fintech_use_num;
+
+    let councilByUnion = await council_service.findByUnionName(union_name);
+    let fintech_use_num = councilByUnion.fintech_use_num;
+
+    let bank_token = await bank_api_service.findTokenByFintech(councilByUnion.fintech_use_num);
+    let token = bank_token.access_token;
 
     while (today_transaction.is_more){
         let page_content = await bank_api_service.getTransactionToday(token, bank_param);
@@ -71,7 +74,6 @@ exports.update = async (req, res) => {
             return item
         });
 
-    //Todo Invoke 로직 구현
     today_transaction.trans_list.map(item => {
         fabric_helper.initObject(user_client)
             .then( user_client => fabric_helper.invokeByChainCode(user_client,"addHistory",

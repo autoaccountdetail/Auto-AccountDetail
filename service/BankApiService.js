@@ -21,7 +21,7 @@ exports.getTransactionToday = (token, bank_param) => {
     return request_promise(param).then((exportToday));
 };
 
-
+// 공동은행 계좌인증 URL 가져오기
 exports.getAuthUrl = () => {
     let param = {
         url : COMMON_CONSTANT.BANK_API_AUTH_URL,
@@ -41,6 +41,7 @@ exports.getAuthUrl = () => {
         return res
     })
 };
+
 
 // access token 정보을 얻어옵니다.
 exports.getToken = ({code, redirect_uri}) => {
@@ -68,11 +69,26 @@ exports.getToken = ({code, redirect_uri}) => {
 // 공동은행 거래내역 조회를 위한 parameter를 생성합니다
 exports.makeBankParam = (request_body) =>{
     let bank_param = {... request_body }; // 불변성보장
+
     bank_param.page_index = "page_index" in bank_param ? bank_param.page_index : "1";
+    bank_param.inquiry_type = "inquiry_type" in bank_param ? bank_param.inquiry_type : "A";
+    bank_param.from_date = "from_date" in bank_param ? bank_param.from_date : moment(new Date()).format("YYYYMMDD");
+    bank_param.to_date = "to_date" in bank_param ? bank_param.to_date : moment(new Date()).format("YYYYMMDD");
     bank_param.tran_dtime = moment().format("YYYYMMDDHHmmss");
     bank_param.sort_order = "D";
+
     delete bank_param.access_token;
+
     return bank_param;
+};
+
+
+exports.findTokenByFintech = (fintech) => {
+    return BankToken.findOne({"fintech_use_num" : fintech}, (err, docs)=> {
+        if(err)
+            return err;
+        return "성공";
+    })
 };
 
 // BankToken을 저장합니다.
@@ -106,6 +122,7 @@ exports.getFintechByToken = ({access_token, user_seq_no}) => { // 구조체 해�
         return body_json.res_list[0].fintech_use_num;
     });
 };
+
 
 
 // 거래내역중 오늘에 해당하는 거래내역을 추출합니다.

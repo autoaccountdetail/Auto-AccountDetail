@@ -37,8 +37,6 @@ exports.updateComment = async (req, res) => {
     COMMON_MODULES.ENTRY("updateComment");
     let trans_key = req.query.trans_key;
     await bank_comment_service.updateBankComment(trans_key, "modified");
-    //Todo 댓글 수정, 블록체인으로! registComment, key하고 comment 파라미터
-
 
     return res.status(200).json("업데이트 성공");
 };
