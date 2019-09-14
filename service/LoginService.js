@@ -25,6 +25,7 @@ exports.councilLogin = async (id, pswd) => {
     console.log("Council Login");
     let rst = await councilService.findByIdAndPassword(id,pswd);
 
+    console.log("=====Login");
     console.log(rst);
 
     if(rst.length == 0){
@@ -32,7 +33,7 @@ exports.councilLogin = async (id, pswd) => {
         return msg;
     }
 
-    return rst;
+    return {'msg' : '로그인 성공'};
 };
 
 exports.councilJoin = async  (id, pswd, union_name) =>{

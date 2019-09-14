@@ -8,7 +8,7 @@ exports.login =  async (req, res) => {
    let rst = '';
 
    // 학생회 계정 로그인 로직 필요, id의 @ 가 포함되냐, 안되냐로 구분
-    if (id.indexOf("@") === -1) // 고치기
+    if (id.indexOf("@") !== -1) // 고치기
         rst = await service.councilLogin(id, pswd);
     else
         rst = await service.studentLogin(id, pswd);
@@ -22,7 +22,7 @@ exports.join = async (req, res) => {
     let id = req.body.id;
     let pswd = req.body.pswd;
     let union_name = req.body.union_name;
-    console.log(id);
+    console.log(pswd);
     service.councilJoin(id, pswd, union_name);
 
     let rst = {"msg" : "회원가입에 성공했습니다."};
