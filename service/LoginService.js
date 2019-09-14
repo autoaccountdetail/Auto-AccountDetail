@@ -37,7 +37,7 @@ exports.councilLogin = async (id, pswd) => {
 
 exports.councilJoin = async  (id, pswd, union_name) =>{
       let council = new Council({
-          "id": id, "paswword": pswd, "union_name": union_name });
+          "id": id, "password": pswd, "union_name": union_name });
         council.save(error => {
         if(error) console.log(error);
     });
