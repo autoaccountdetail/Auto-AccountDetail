@@ -38,6 +38,16 @@ exports.validate = (req, res) => {
 
 };
 
+exports.logout = (req, res) => {
+    console.log("Entry Validate");
+
+    req.session.destroy(function(err){
+        if(err)
+            console.log(err)
+    });
+    return res.status(200);
+};
+
 exports.join = async (req, res) => {
     let id = req.body.id;
     let pswd = req.body.pswd;
