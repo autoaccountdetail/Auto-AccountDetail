@@ -25,6 +25,12 @@ exports.loadTransactionList = async (req, res) => {
 
 //Todo 댓글이 달려있지 않은 내역만 추출
 
+exports.testInsert = async (req, res) => {
+    COMMON_MODULES.ENTRY("testInsert");
+
+
+}
+
 exports.searchComment = async (req, res) => {
     COMMON_MODULES.ENTRY("searchComment");
     const fintech = req.query.fintech_use_num;
