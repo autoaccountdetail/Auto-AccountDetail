@@ -15,10 +15,9 @@ exports.issueAuthCodeURL = async (req, res) => {
 
 exports.saveAuthCode = async (req, res) => {
     COMMON_MODULES.ENTRY("saveAuthCode");
-    console.log(req);
-    console.log(req.body.query);
+    console.log(req.body.query.code);
     let auth_code = req.body.query.code;
-
+    return res.status(200).json({"auth_code": auth_code});
 };
 
 exports.issueToken = async (req, res) => {

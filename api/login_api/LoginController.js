@@ -13,12 +13,32 @@ exports.login =  async (req, res) => {
     else
         rst = await service.studentLogin(id, pswd);
 
+    if(rst.msg === '로그인 성공'){
+        res.cookie('token', "true");
+        res.cookie('id', id);
+        res.cookie('pswd', pswd);
+        req.session.user = {'id' : id, "union_name": rst.union_name};
+    }
 
     return res.status(200).json(rst);
 };
 
+exports.validate = (req, res) => {
+
+    console.log("Entry Validate");
+    console.log(req.session);
+
+    const { user } = req.session;
+    console.log(user);
+    if (!user) {
+        return res.status(200).json();
+    }
+
+    return res.status(200).json(user);
+
+};
+
 exports.join = async (req, res) => {
-    console.log(req.body);
     let id = req.body.id;
     let pswd = req.body.pswd;
     let union_name = req.body.union_name;

@@ -7,6 +7,7 @@ router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: true}));
 
 router.post('/login', controller.login);
+router.get('/validate', controller.validate);
 router.post('/join', controller.join);
 
 module.exports = router;

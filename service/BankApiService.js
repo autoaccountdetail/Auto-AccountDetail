@@ -93,7 +93,7 @@ exports.findTokenByFintech = (fintech) => {
 
 // BankToken을 저장합니다.
 exports.saveBankToken = (user_id, token) => {
-    let bank_toekn = new BankToken({...token, fintech_use_num : user_id});
+    let bank_toekn = new BankToken({...token});
     bank_toekn.save(error => {
         if(error) console.log(error);
     });

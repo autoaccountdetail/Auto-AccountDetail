@@ -1,7 +1,6 @@
 const mongoose =require('mongoose');
 
 // 학생회 계정
-//Todo 계좌정보는 어떻게 관리?
 const Council = new mongoose.Schema({
     id: String,
     password: String, //Todo 암호화 과정 필요

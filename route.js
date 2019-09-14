@@ -1,10 +1,17 @@
 const express = require('express');
+const session = require('express-session');
 const route = express();
 const db = require('./db');
 const cors = require('cors');
 
 // CORS 설정
 route.use(cors());
+route.use(session({
+    secret: '@#@$MYSIGN#@$#$',
+    resave: false,
+    saveUninitialized: true
+}));
+
 route.use('/api', require('./api/login_api'));
 route.use('/api', require('./api/council_api'));
 route.use('/api/bank', require('./api/bank_api'));

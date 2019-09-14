@@ -33,7 +33,7 @@ exports.councilLogin = async (id, pswd) => {
         return msg;
     }
 
-    return {'msg' : '로그인 성공'};
+    return {'msg' : '로그인 성공', 'union_name' : rst[0].union_name};
 };
 
 exports.councilJoin = async  (id, pswd, union_name) =>{
