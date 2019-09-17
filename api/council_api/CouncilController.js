@@ -1,5 +1,6 @@
 const COMMON_MODULES = require('../../common/modules');
 const bank_comment_service = require('../../service/BankCommantService');
+const council_service = require('../../service/CouncilService');
 const fabric_helper = require('../../hyperledger_fabric/fabric_helper');
 
 
@@ -7,8 +8,8 @@ const fabric_helper = require('../../hyperledger_fabric/fabric_helper');
 
 exports.loadTransactionList = async (req, res) => {
     COMMON_MODULES.ENTRY("loadTransactionList");
-    let union_name = req.body.union_name;
-    let hf_trasacion = req.body.comment === "true" ? "queryHistorysComment" : "queryHistorysByKeys";
+    let union_name = req.query.union_name;
+    let hf_trasacion = req.query.comment === "true" ? "queryHistorysComment" : "queryHistorysByKeys";
     let hf_args = ["unionName",union_name];
     let user_client = {};
 
@@ -29,12 +30,29 @@ exports.loadTransactionList = async (req, res) => {
                 item => item.Record
             );
         });
-
+    console.log(tran_list);
     return res.status(200).json(tran_list);
 };
 
-//Todo 댓글이 달려있지 않은 내역만 추출
+exports.loadCouncil = async (req, res) => {
+    COMMON_MODULES.ENTRY("loadCouncil");
+    let major_split = req.query.councils.split(" ");
+    let major_list = [major_split[0]];
+    let council_list = [];
 
+    for (let i = 1; i < major_split.length; i++) {
+        major_list.push(major_list[i-1] + ' ' + major_split[i]);
+    }
+
+    for (let i = 1; i < major_list.length; i++) {
+        let council = await council_service.findDTOByUnionName(major_list[i]);
+        council_list.push(council);
+    }
+    console.log("==========");
+    console.log(council_list);
+
+    return res.status(200).json({"test": major_split});
+};
 
 exports.searchComment = async (req, res) => {
     COMMON_MODULES.ENTRY("searchComment");

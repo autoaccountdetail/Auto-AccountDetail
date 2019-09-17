@@ -27,3 +27,12 @@ exports.findByUnionName = (union_name) => {
     })
 };
 
+exports.findDTOByUnionName = (union_name) => {
+    return Council.findOne({"union_name": union_name},
+        ["union_name", "fintech_use_num", "state_msg"],(err, docs) => {
+        if(err)
+            return "Union 정보가 존재하지 않습니다.";
+        return "성공";
+    })
+};
+

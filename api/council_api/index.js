@@ -7,8 +7,8 @@ router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: true}));
 
 router.get('/transactions', controller.loadTransactionList);
+router.get('/councils', controller.loadCouncil);
 router.get('/comments', controller.searchComment);
 router.put('/comments', controller.updateComment);
-
 
 module.exports = router;

@@ -27,7 +27,7 @@ exports.getAuthUrl = () => {
         url : COMMON_CONSTANT.BANK_API_AUTH_URL,
         method : "GET",
         qs : {
-            "redirect_uri" : "http://localhost:3000/api/bank/auth_code",
+            "redirect_uri" : "http://localhost:3000",
             "client_id" : COMMON_CONSTANT.BANK_CLIENT_KEY,
             "response_type" : "code",
             "lang" : "kor",
