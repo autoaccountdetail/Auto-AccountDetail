@@ -1,4 +1,3 @@
-const BankComment = require('../entity/BankComment');
 const BankToken = require('../entity/BankToken');
 const COMMON_CONSTANT= require('../common/constant');
 const request_promise = require("request-promise-native");
@@ -27,7 +26,7 @@ exports.getAuthUrl = () => {
         url : COMMON_CONSTANT.BANK_API_AUTH_URL,
         method : "GET",
         qs : {
-            "redirect_uri" : "http://localhost:3000/account/check",
+            "redirect_uri" : COMMON_CONSTANT.BANK_API_AUTH_REDIRECT_URL,
             "client_id" : COMMON_CONSTANT.BANK_CLIENT_KEY,
             "response_type" : "code",
             "lang" : "kor",

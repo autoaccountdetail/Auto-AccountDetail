@@ -9,6 +9,7 @@ module.exports = Object.freeze({
     BANK_API_SCOPE: 'login inquiry transfer',
     BANK_API_GRANT_TYPE: 'authorization_code',
     BANK_API_AUTH_URL: ' https://testapi.open-platform.or.kr/oauth/2.0/authorize2',
+    BANK_API_AUTH_REDIRECT_URL: 'http://localhost:3000/account/check',
     FABRIC_CA_URL: 'http://35.243.78.192:7054',
     FABRIC_PEER_URL: 'grpc://35.243.78.192:7051',
     FABRIC_ODERER_URL: 'grpc://35.243.78.192:7050',

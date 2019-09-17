@@ -5,10 +5,6 @@ exports.issueToken = new Schema({
         type: String,
         required: true
     },
-    "redirect_uri": { // 콜백 url, 현재는 http://localhost:8080/BankAPi/html/callback.html 로 요청
-        type: String,
-        required: true
-    },
     "user_id": { // 계좌인증을 진행할 유저 id, ex) test
         type: String,
         required: true
