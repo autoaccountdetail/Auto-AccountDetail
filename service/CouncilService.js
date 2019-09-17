@@ -36,3 +36,11 @@ exports.findDTOByUnionName = (union_name) => {
     })
 };
 
+exports.makeDTO = ({fintech_use_num, state_msg, union_name}) => {
+    return {
+        "major": union_name,
+        "fintech_use_num": fintech_use_num,
+        "body": state_msg
+    }
+};
+

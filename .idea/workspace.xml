@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cfb0f119-39f0-48fd-8b76-a266dedb8eb5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/council_api/CouncilController.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/council_api/CouncilController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/council_api/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/council_api/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/login_api/LoginController.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/login_api/LoginController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entity/Council.js" beforeDir="false" afterPath="$PROJECT_DIR$/entity/Council.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/BankApiService.js" beforeDir="false" afterPath="$PROJECT_DIR$/service/BankApiService.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/CouncilService.js" beforeDir="false" afterPath="$PROJECT_DIR$/service/CouncilService.js" afterDir="false" />
     </list>
@@ -96,12 +92,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="js" value="10088" />
+          <entry key="js" value="10288" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JavaScript" value="10088" />
+          <entry key="JavaScript" value="10288" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
@@ -130,8 +126,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/api/council_api/CouncilController.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="227">
-                  <caret line="38" column="40" selection-start-line="38" selection-start-column="32" selection-end-line="38" selection-end-column="40" />
+                <state relative-caret-position="557">
+                  <caret line="69" lean-forward="true" selection-start-line="69" selection-end-line="69" />
                 </state>
               </provider>
             </entry>
@@ -167,11 +163,11 @@
       </split-first>
       <split-second>
         <leaf>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/service/BankApiService.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-606">
-                  <caret line="35" column="28" selection-start-line="35" selection-start-column="28" selection-end-line="35" selection-end-column="28" />
+                <state relative-caret-position="205">
+                  <caret line="32" column="27" lean-forward="true" selection-start-line="32" selection-start-column="27" selection-end-line="32" selection-end-column="27" />
                   <folding>
                     <element signature="e#327#606#0" />
                     <element signature="e#345#522#0" />
@@ -194,16 +190,20 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/service/CouncilService.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="232">
-                  <caret line="29" column="26" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="26" />
+                <state relative-caret-position="274">
+                  <caret line="38" column="59" selection-start-line="38" selection-start-column="59" selection-end-line="38" selection-end-column="59" />
                   <folding>
                     <element signature="e#96#235#0" />
                     <element signature="e#291#452#0" />
                     <element signature="e#371#448#0" />
+                    <element signature="e#487#554#0" />
+                    <element signature="e#599#757#0" />
                     <element signature="e#667#754#0" />
+                    <element signature="e#802#960#0" />
+                    <element signature="e#870#957#0" />
                   </folding>
                 </state>
               </provider>
@@ -222,8 +222,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>get</find>
-      <find>body</find>
       <find>length</find>
       <find>show</find>
       <find>find</find>
@@ -252,6 +250,8 @@
       <find>redir</find>
       <find>findByUnionName`</find>
       <find>findOne</find>
+      <find>해제</find>
+      <find>redire</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -311,9 +311,9 @@
         <option value="$PROJECT_DIR$/api/bank_api/index.js" />
         <option value="$PROJECT_DIR$/api/council_api/index.js" />
         <option value="$PROJECT_DIR$/entity/Council.js" />
-        <option value="$PROJECT_DIR$/service/BankApiService.js" />
         <option value="$PROJECT_DIR$/service/CouncilService.js" />
         <option value="$PROJECT_DIR$/api/council_api/CouncilController.js" />
+        <option value="$PROJECT_DIR$/service/BankApiService.js" />
       </list>
     </option>
   </component>
@@ -464,12 +464,12 @@
       <workItem from="1566734841707" duration="1868000" />
       <workItem from="1567601244343" duration="1460000" />
       <workItem from="1567919047028" duration="22503000" />
-      <workItem from="1568106278617" duration="60587000" />
+      <workItem from="1568106278617" duration="62164000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="156939000" />
+    <option name="totallyTimeSpent" value="158516000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -833,31 +833,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/service/BankApiService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-606">
-          <caret line="35" column="28" selection-start-line="35" selection-start-column="28" selection-end-line="35" selection-end-column="28" />
-          <folding>
-            <element signature="e#327#606#0" />
-            <element signature="e#345#522#0" />
-            <element signature="e#421#468#0" />
-            <element signature="e#1143#1169#0" />
-            <element signature="e#1248#1930#0" />
-            <element signature="e#1272#1512#0" />
-            <element signature="e#1539#1863#0" />
-            <element signature="e#1615#1805#0" />
-            <element signature="e#2675#2822#0" />
-            <element signature="e#2751#2819#0" />
-            <element signature="e#3109#3798#0" />
-            <element signature="e#3142#3352#0" />
-            <element signature="e#3213#3279#0" />
-            <element signature="e#3474#3794#0" />
-            <element signature="n#!!block;n#exportToday#0" />
-            <element signature="e#4057#4144#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/entity/Council.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="253">
@@ -899,21 +874,50 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/service/CouncilService.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="29" column="26" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="26" />
+        <state relative-caret-position="274">
+          <caret line="38" column="59" selection-start-line="38" selection-start-column="59" selection-end-line="38" selection-end-column="59" />
           <folding>
             <element signature="e#96#235#0" />
             <element signature="e#291#452#0" />
             <element signature="e#371#448#0" />
+            <element signature="e#487#554#0" />
+            <element signature="e#599#757#0" />
             <element signature="e#667#754#0" />
+            <element signature="e#802#960#0" />
+            <element signature="e#870#957#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service/BankApiService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="32" column="27" lean-forward="true" selection-start-line="32" selection-start-column="27" selection-end-line="32" selection-end-column="27" />
+          <folding>
+            <element signature="e#327#606#0" />
+            <element signature="e#345#522#0" />
+            <element signature="e#421#468#0" />
+            <element signature="e#1143#1169#0" />
+            <element signature="e#1248#1930#0" />
+            <element signature="e#1272#1512#0" />
+            <element signature="e#1539#1863#0" />
+            <element signature="e#1615#1805#0" />
+            <element signature="e#2675#2822#0" />
+            <element signature="e#2751#2819#0" />
+            <element signature="e#3109#3798#0" />
+            <element signature="e#3142#3352#0" />
+            <element signature="e#3213#3279#0" />
+            <element signature="e#3474#3794#0" />
+            <element signature="n#!!block;n#exportToday#0" />
+            <element signature="e#4057#4144#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/api/council_api/CouncilController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="38" column="40" selection-start-line="38" selection-start-column="32" selection-end-line="38" selection-end-column="40" />
+        <state relative-caret-position="557">
+          <caret line="69" lean-forward="true" selection-start-line="69" selection-end-line="69" />
         </state>
       </provider>
     </entry>

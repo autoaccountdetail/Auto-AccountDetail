@@ -50,8 +50,9 @@ exports.loadCouncil = async (req, res) => {
     }
     console.log("==========");
     console.log(council_list);
-
-    return res.status(200).json({"test": major_split});
+    let rst = council_list.map(council => council_service.makeDTO(council));
+    console.log(rst);
+    return res.status(200).json({"majorList": rst});
 };
 
 exports.searchComment = async (req, res) => {
