@@ -5,7 +5,13 @@ const db = require('./db');
 const cors = require('cors');
 
 // CORS 설정
-route.use(cors());
+const corsOptions = {
+    origin: 'http://localhost:3000',
+    credentials: true,
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+};
+
+route.use(cors(corsOptions));
 route.use(session({
     secret: '@#@$MYSIGN#@$#$',
     resave: false,
