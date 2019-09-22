@@ -37,8 +37,8 @@ exports.issueToken = async (req, res) => {
     bank_api_service.saveBankToken(user_id, token_info);
 
     let fintech = await bank_api_service.getFintechByToken(token_info);
-    if(!'rsp_code' in fintech) {
-        council_service.findById(user_id);
+
+    if(typeof fintech === 'string') {
         council_service.update(user_id, "fintech_use_num", fintech);
     }
 
