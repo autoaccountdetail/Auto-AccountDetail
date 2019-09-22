@@ -28,8 +28,8 @@ exports.issueToken = async (req, res) => {
         return res.status(400).json({'error': 1, 'message' :is_valid[0].message});
     }
     const user_id = req.body.user_id;
-
-    //Todo fintech_use_num와 code가 일치하는지 확인하는 검증로직 필요
+    //
+    // //Todo fintech_use_num와 code가 일치하는지 확인하는 검증로직 필요
     let token_info = await bank_api_service.getToken(req.body);
     token_info = JSON.parse(token_info);
     console.log("=========Token ============");
@@ -39,7 +39,7 @@ exports.issueToken = async (req, res) => {
     let fintech = await bank_api_service.getFintechByToken(token_info);
 
     if(typeof fintech === 'string') {
-        council_service.update(user_id, "fintech_use_num", fintech);
+        await council_service.update(user_id, "fintech_use_num", fintech);
     }
 
     return res.status(200).json(fintech);

@@ -16,6 +16,8 @@ exports.findById = (user_id) => {
 exports.update = async (user_id, field_name, value) => {
     let target_council = await this.findById(user_id);
     target_council[field_name] = value;
+    console.log("===== Update =====");
+    console.log(target_council);
     target_council.save((err) => console.log(err));
 };
 
