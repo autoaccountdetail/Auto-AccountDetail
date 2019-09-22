@@ -111,14 +111,19 @@ exports.getFintechByToken = ({access_token, user_seq_no}) => { // 구조체 해�
     console.log(param);
 
     return request_promise(param).then((body) =>{
+        let rst;
         let body_json = JSON.parse(body);
         console.log("Body JSON");
         console.log(body_json);
         // let last = body_json.res_list.length-1;
-        console.log("======== This Fintech ========");
-        console.log(body_json.res_list[0]);
+        // console.log("======== This Fintech ========");
+        // console.log(body_json.res_list[0]);
+        if('rst_list' in body_json)
+            rst = body_json.res_list[0].fintech_use_num;
+        else
+            rst = body_json;
 
-        return body_json.res_list[0].fintech_use_num;
+        return rst;
     });
 };
 
