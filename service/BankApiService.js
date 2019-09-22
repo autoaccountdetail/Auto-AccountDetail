@@ -46,7 +46,7 @@ exports.getAuthUrl = () => {
 exports.getToken = ({code, redirect_uri}) => {
     let issue_param = {
         "code": code,
-        "redirect_uri": redirect_uri,
+        "redirect_uri": COMMON_CONSTANT.BANK_API_AUTH_REDIRECT_URL,
         "client_id": COMMON_CONSTANT.BANK_CLIENT_KEY,
         "client_secret": COMMON_CONSTANT.BANK_CLIENT_SECRET,
         "grant_type": COMMON_CONSTANT.BANK_API_GRANT_TYPE
@@ -57,7 +57,7 @@ exports.getToken = ({code, redirect_uri}) => {
         headers : {
             "Sec-Fetch-Mode": "cors",
             "Content-Type": "application/x-www-form-urlencoded",
-            "Referer": "http://localhost:8080/BankAPi/html/authorize2.html"
+            "Referer": "http://localhost:3000/account/check"
         },
         method: "POST",
         form : issue_param

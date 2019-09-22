@@ -22,6 +22,7 @@ exports.saveAuthCode = async (req, res) => {
 
 exports.issueToken = async (req, res) => {
     COMMON_MODULES.ENTRY("Register");
+    console.log(req.body);
     const is_valid = validater.issueToken.validate(req.body);
     if(is_valid.length > 0){
         return res.status(400).json({'error': 1, 'message' :is_valid[0].message});
