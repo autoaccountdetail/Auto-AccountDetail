@@ -19,6 +19,7 @@ exports.findById = (user_id) => {
         .where('id').equals(user_id);
 };
 
+
 exports.findByUnionName = (union_name) => {
     return Council.find({"union_name": union_name},(err, docs) => {
         if(err)

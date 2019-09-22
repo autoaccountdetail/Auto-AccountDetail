@@ -34,10 +34,11 @@ exports.issueToken = async (req, res) => {
     console.log("=========Token ============");
     console.log(token_info);
     bank_api_service.saveBankToken(user_id, token_info);
-    // let token_info = {"access_token": "e30fe977-6e60-41f5-9ac9-a3c66a4c3e4b", "user_seq_no": "1100035167", "test": "..."};
 
     let fintech = await bank_api_service.getFintechByToken(token_info);
     council_service.findById(user_id);
+    council_service.update(user_id, "fintech_use_num", fintech);
+
     return res.status(200).json(fintech);
 };
 
