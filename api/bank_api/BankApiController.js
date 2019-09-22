@@ -34,19 +34,19 @@ exports.issueToken = async (req, res) => {
     token_info = JSON.parse(token_info);
     console.log("=========Token ============");
     console.log(token_info);
-    bank_api_service.saveBankToken(user_id, token_info);
 
     let fintech = await bank_api_service.getFintechByToken(token_info);
 
     if(typeof fintech === 'string') {
         await council_service.update(user_id, "fintech_use_num", fintech);
+        bank_api_service.saveBankToken(user_id, token_info, fintech);
     }
 
     return res.status(200).json(fintech);
 };
 
 exports.update = async (req, res) => {
-    COMMON_MODULES.ENTRY("Bank API Search");
+    COMMON_MODULES.ENTRY("Bank API Update");
     const is_valid = validater.transaction.validate(req.body);
     if(is_valid.length > 0){
         return res.status(400).json({'error': 1, 'message' :is_valid[0].message});

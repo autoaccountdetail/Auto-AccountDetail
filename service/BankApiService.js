@@ -91,8 +91,8 @@ exports.findTokenByFintech = (fintech) => {
 };
 
 // BankToken을 저장합니다.
-exports.saveBankToken = (user_id, token) => {
-    let bank_toekn = new BankToken({...token});
+exports.saveBankToken = (user_id, token, fintech_use_num) => { // Todo 핀테크번호 저장
+    let bank_toekn = new BankToken({...token, "user_id": user_id , "fintech_use_num": fintech_use_num});
     bank_toekn.save(error => {
         if(error) console.log(error);
     });
@@ -118,7 +118,7 @@ exports.getFintechByToken = ({access_token, user_seq_no}) => { // 구조체 해�
         // let last = body_json.res_list.length-1;
         // console.log("======== This Fintech ========");
         // console.log(body_json.res_list[0]);
-        if('rst_list' in body_json)
+        if('res_list' in body_json)
             rst = body_json.res_list[0].fintech_use_num;
         else
             rst = body_json;
