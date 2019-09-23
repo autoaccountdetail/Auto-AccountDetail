@@ -57,11 +57,20 @@ exports.update = async (req, res) => {
     let user_client = {};
     let union_name = req.body.union_name;
 
+    console.log("=== Bank Param ===");
+    console.log(bank_param);
+
+
     let councilByUnion = await council_service.findByUnionName(union_name);
     let fintech_use_num = councilByUnion.fintech_use_num;
+    console.log("=== Council ===");
+    console.log(councilByUnion);
+
 
     let bank_token = await bank_api_service.findTokenByFintech(councilByUnion.fintech_use_num);
     let token = bank_token.access_token;
+    console.log("=== Token ===");
+    console.log(token);
 
     while (today_transaction.is_more){
         let page_content = await bank_api_service.getTransactionToday(token, bank_param);
