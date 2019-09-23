@@ -1,3 +1,6 @@
+const path = require('path');
+const os = require('os');
+
 module.exports = Object.freeze({
     PLMS_LOGIN_REQUEST_URL: 'https://onestop.pusan.ac.kr/new_pass/exorgan/exidentify.asp',
     PLMS_LOGIN_INDEX_URL: 'https://plms.pusan.ac.kr/studentLogin/index.php',
@@ -16,6 +19,6 @@ module.exports = Object.freeze({
     FABRIC_CA_NAME: 'ca.example.com',
     FABRIC_CHANEL_NAME: 'mychannel',
     FABRIC_USER_NAME: 'user10',
-    FABRIC_WALLET_PATH: '/Applications/Project/Auto-AccountDetail/hyperledger_fabric/wallet',
+    FABRIC_WALLET_PATH: path.join(__dirname, 'wallet'),
     FABRIC_CHAIN_CODE_ID: 'history'
 });
