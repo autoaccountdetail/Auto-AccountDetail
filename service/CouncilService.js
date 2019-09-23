@@ -23,7 +23,7 @@ exports.update = async (user_id, field_name, value) => {
 
 
 exports.findByUnionName = (union_name) => {
-    return Council.find({"union_name": union_name},(err, docs) => {
+    return Council.findOne({"union_name": union_name},(err, docs) => {
         if(err)
             return "Union 정보가 존재하지 않습니다.";
         return "성공";

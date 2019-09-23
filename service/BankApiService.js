@@ -9,7 +9,7 @@ exports.getTransactionToday = (token, bank_param) => {
     let param = {
         url : COMMON_CONSTANT.BANK_API_TRANSACTION_URL,
         headers : {
-            "Authorization" : token
+            "Authorization" : "Bearer " + token
         },
         method: "GET",
         qs : bank_param
@@ -132,6 +132,9 @@ exports.getFintechByToken = ({access_token, user_seq_no}) => { // 구조체 해�
 // 거래내역중 오늘에 해당하는 거래내역을 추출합니다.
 function exportToday(body) {
     let transaction_list = JSON.parse(body).res_list;
+    console.log("=== Export Today === ");
+    console.log(JSON.parse(body));
+
     let test_date = [2016, 9, 1]; // month + 1
     //Todo list 각 원소에 핀테크번호
     let today_trans = transaction_list
