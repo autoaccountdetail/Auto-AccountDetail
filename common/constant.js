@@ -18,9 +18,8 @@ module.exports = Object.freeze({
     FABRIC_ODERER_URL: 'grpc://35.243.78.192:7050',
     FABRIC_CA_NAME: 'ca.example.com',
     FABRIC_CHANEL_NAME: 'mychannel',
-    FABRIC_USER_NAME: 'user1001',
-    FABRIC_WALLET_PATH: path.join(__dirname, 'wallet'),
+    FABRIC_USER_NAME: 'user1002',
+    FABRIC_WALLET_PATH: path.join(__dirname, '..', 'hyperledger_fabric', 'wallet'),
     FABRIC_CHAIN_CODE_ID: 'history'
 });
 
-console.log(path.join(__dirname, '..', 'hyperledger_fabric', 'wallet'));
