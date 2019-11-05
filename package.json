@@ -15,7 +15,7 @@
     "fabric-network": "^1.4.4",
     "iconv": "^2.3.4",
     "moment": "^2.24.0",
-    "mongoose": "^5.6.6",
+    "mongoose": "^5.7.5",
     "request": "^2.88.0",
     "request-promise-native": "^1.0.7",
     "validate": "^4.5.1"
